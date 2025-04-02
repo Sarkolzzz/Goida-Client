@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cc.goida.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinEntity",
+    "MixinPlayerEntity"
+  ],
+  "client": [
+    "MixinClientPlayerEntity",
+    "MixinContainerScreen",
+    "MixinEntityRenderDispatcher",
+    "MixinKeyboard",
+    "MixinMinecraftClient",
+    "MixinScreen",
+    "MixinTitleScreen"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
