@@ -14,7 +14,6 @@ public class Module extends ClientUtil implements Imports {
     @Setter
     private int key;
     private boolean state = false;
-    private boolean toggle = false;
 
     public Module(String name, String description, Category category, int key) {
         this.name = name;
@@ -50,9 +49,5 @@ public class Module extends ClientUtil implements Imports {
     public void onDisable(){
         print("Модуль " + name + " выключен.");
         Goida.getInstance().eventBus.unregister(this);
-    }
-
-    public void change(){
-        toggle = !toggle;
     }
 }
