@@ -17,18 +17,11 @@ import org.lwjgl.glfw.GLFW;
 
 public class Speed extends Module {
     public float increase = 1.84f;
-    final Vec3d prevMotion;
-
-    {
-        assert mc.player != null;
-        prevMotion = mc.player.getVelocity();
-    }
 
     @Subscribe
     public void onUpdate(EventUpdate event) {
         if (mc.player == null || mc.world == null) return;
-        Vec3d newMotion = new Vec3d(prevMotion.x * increase, prevMotion.y, prevMotion.z * increase);
-
+        Vec3d newMotion = new Vec3d(mc.player.getVelocity().x * increase, mc.player.getVelocity().y * increase, mc.player.getVelocity().z * increase);
         mc.player.setVelocity(newMotion);
     }
 }
