@@ -1,9 +1,9 @@
 package cc.goida.features.modules.impl.misc;
 
 import cc.goida.events.impl.EventScreen;
-import cc.goida.features.modules.Category;
-import cc.goida.features.modules.Module;
-import cc.goida.features.modules.ModuleInfo;
+import cc.goida.features.modules.api.Category;
+import cc.goida.features.modules.api.Module;
+import cc.goida.features.modules.api.ModuleInfo;
 import com.google.common.eventbus.Subscribe;
 import net.minecraft.client.gui.screen.DeathScreen;
 import net.minecraft.network.packet.s2c.play.PlayerRespawnS2CPacket;

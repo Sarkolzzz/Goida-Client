@@ -2,6 +2,7 @@ package cc.goida.features.cmd;
 
 import cc.goida.Goida;
 import cc.goida.events.impl.EventChat;
+import cc.goida.features.cmd.impl.BindCommand;
 import cc.goida.features.cmd.impl.HelpCommand;
 import cc.goida.utils.client.ClientUtil;
 import com.google.common.eventbus.Subscribe;
@@ -18,9 +19,10 @@ public class Commands extends ClientUtil {
     private final ArrayList<Command> commands = new ArrayList<>();
 
     private HelpCommand helpCommand;
+    private BindCommand bindCommand;
 
     public void init() {
-        registerAll();
+        registerAll(helpCommand = new HelpCommand(), bindCommand = new BindCommand());
 
         Goida.getInstance().eventBus.register(this);
     }
@@ -37,6 +39,7 @@ public class Commands extends ClientUtil {
             for (Command command : commands) {
                 String[] args = chat.getMessage().split(" ");
                 String name = args[0].replaceFirst(".", "");
+
                 if (command.getName().equals(name)){
                     command.execute();
                 }

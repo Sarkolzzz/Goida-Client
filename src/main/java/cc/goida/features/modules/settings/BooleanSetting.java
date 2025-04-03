@@ -1,4 +1,4 @@
-package cc.goida.features.modules.settings.impl;
+package cc.goida.features.modules.settings;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

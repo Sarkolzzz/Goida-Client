@@ -1,4 +1,4 @@
-package cc.goida.features.modules;
+package cc.goida.features.modules.api;
 
 public enum Category {
     Combat,

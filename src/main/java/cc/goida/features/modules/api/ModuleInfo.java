@@ -1,4 +1,4 @@
-package cc.goida.features.modules;
+package cc.goida.features.modules.api;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -9,4 +9,6 @@ public @interface ModuleInfo {
     String desc();
     int key() default -1;
     Category category();
+    BindType bindType() default BindType.Toggle;
+    Type type() default Type.On;
 }

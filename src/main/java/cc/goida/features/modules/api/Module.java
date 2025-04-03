@@ -1,4 +1,4 @@
-package cc.goida.features.modules;
+package cc.goida.features.modules.api;
 
 import cc.goida.Goida;
 import cc.goida.utils.client.ClientUtil;
@@ -14,6 +14,10 @@ public class Module extends ClientUtil implements Imports {
     @Setter
     private int key;
     private boolean state = false;
+    @Setter
+    private BindType bindType;
+    @Setter
+    private Type type;
 
     public Module(String name, String description, Category category, int key) {
         this.name = name;
@@ -27,6 +31,8 @@ public class Module extends ClientUtil implements Imports {
         this.description = getClass().getAnnotation(ModuleInfo.class).desc();
         this.category = getClass().getAnnotation(ModuleInfo.class).category();
         this.key = getClass().getAnnotation(ModuleInfo.class).key();
+        this.bindType = getClass().getAnnotation(ModuleInfo.class).bindType();
+        this.type = getClass().getAnnotation(ModuleInfo.class).type();
     }
 
     public void toggle(){

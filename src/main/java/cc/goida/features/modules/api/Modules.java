@@ -1,13 +1,13 @@
-package cc.goida.features.modules;
+package cc.goida.features.modules.api;
 
 import cc.goida.Goida;
 import cc.goida.events.impl.EventKey;
+import cc.goida.features.modules.impl.misc.AutoRespawn;
 import cc.goida.features.modules.impl.movement.*;
 import cc.goida.features.modules.impl.render.*;
 import cc.goida.utils.client.ClientUtil;
 import com.google.common.eventbus.Subscribe;
 import lombok.Getter;
-import net.minecraft.client.gui.screen.GameMenuScreen;
 
 import java.util.*;
 
@@ -34,6 +34,8 @@ public class Modules extends ClientUtil {
 
     /* MISC */
 
+    private AutoRespawn autoRespawn;
+
     public void init() {
         registerAll(
                 /* COMBAT */
@@ -50,11 +52,11 @@ public class Modules extends ClientUtil {
 
 
                 /* RENDER */
-                fullBright = new FullBright()
+                fullBright = new FullBright(),
 
 
                 /* MISC */
-
+                autoRespawn = new AutoRespawn()
 
         );
 
@@ -63,18 +65,31 @@ public class Modules extends ClientUtil {
 
     private void registerAll(Module... Modules) {
         Arrays.sort(Modules, Comparator.comparing(Module::getName));
-
         Collections.addAll(modules, Modules);
     }
 
     @Subscribe
     private void onKey(EventKey e) {
         if (e.getAction() == 1) {
-            assert mc.currentScreen != null;
-            if (mc.currentScreen.getClass() == GameMenuScreen.class) {
+            if (mc.currentScreen == null) {
                 for (Module module : modules) {
                     if (module.getKey() == e.getKey()) {
-                        module.toggle();
+                        if (module.getBindType() == BindType.Toggle) {
+                            module.toggle();
+                        }
+
+                        //fix
+//                        if (module.getBindType() == BindType.Hold && module.getType() == Type.On) {
+//                            while (e.getAction() == 1){
+//                                module.onEnable();
+//                            }
+//                        }
+//
+//                        else {
+//                            while (e.getAction() == 1){
+//                                module.onDisable();
+//                            }
+//                        }
                     }
                 }
             }

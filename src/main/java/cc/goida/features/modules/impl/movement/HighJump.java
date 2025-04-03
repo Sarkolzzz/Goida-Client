@@ -1,9 +1,9 @@
 package cc.goida.features.modules.impl.movement;
 
 import cc.goida.events.impl.EventJump;
-import cc.goida.features.modules.Category;
-import cc.goida.features.modules.Module;
-import cc.goida.features.modules.ModuleInfo;
+import cc.goida.features.modules.api.Category;
+import cc.goida.features.modules.api.Module;
+import cc.goida.features.modules.api.ModuleInfo;
 import com.google.common.eventbus.Subscribe;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.glfw.GLFW;

@@ -6,6 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CommandInfo {
     String name();
-    String description() default "No description.";
+    String description() default "Команда без описания.";
     int args();
 }
