@@ -11,7 +11,7 @@ import org.lwjgl.glfw.GLFW;
 
 @ModuleInfo(
         name = "AutoRespawn",
-        desc = "Автоматически возрождает вас после смерти.",
+        desc = "Автоматически возрождает вас после смерти",
         category = Category.Misc,
         key = GLFW.GLFW_KEY_J
 )
